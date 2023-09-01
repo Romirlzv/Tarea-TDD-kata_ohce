@@ -24,7 +24,7 @@ class Ohce:
         hora_actual = datetime.datetime.now().hour
         if 20 <= hora_actual or hora_actual < 6:
             return f'¡Buenas noches {self.nombre}!'
-        elif 6 <= hora_actual or hora_actual < 12:
+        elif 6 <= hora_actual and hora_actual < 12:
             return f'¡Buenos días {self.nombre}!'
-        
-
+        elif 12 <= hora_actual or hora_actual < 20:
+            return f'¡Buenas tardes {self.nombre}!'

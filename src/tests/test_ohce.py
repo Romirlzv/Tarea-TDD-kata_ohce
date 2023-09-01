@@ -36,3 +36,13 @@ class Test_Ohce(unittest.TestCase):
         self.assertEqual(ohce.saludos(), '¡Buenos días Pedro!')
         mock_datetime.now.return_value.hour = 7
         self.assertEqual(ohce.saludos(), '¡Buenos días Pedro!')
+    
+    @patch('datetime.datetime')
+    def test_saludo_buenas_tardes(self, mock_datetime):
+        mock_datetime.now.return_value.hour = 12
+        ohce = Ohce('Pedro')
+        self.assertEqual(ohce.saludos(), '¡Buenas tardes Pedro!')
+        mock_datetime.now.return_value.hour = 14
+        self.assertEqual(ohce.saludos(), '¡Buenas tardes Pedro!')
+        mock_datetime.now.return_value.hour = 19
+        self.assertEqual(ohce.saludos(), '¡Buenas tardes Pedro!')
