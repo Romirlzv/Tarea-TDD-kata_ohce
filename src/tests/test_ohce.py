@@ -14,4 +14,12 @@ class Test_Ohce(unittest.TestCase):
     def test_palindromo(self, mock_input):
         ohce = Ohce('Pedro')
         self.assertEqual(ohce.palabras('reconocer'), 'reconocer\n¡Bonita palabra!')
-    
+        
+    @patch('datetime.datetime')
+    def test_saludo_buenas_noches(self, mock_datetime):
+        mock_datetime.now.return_value.hour = 20 
+        ohce = Ohce('Pedro')
+        self.assertEqual(ohce.saludos(), '¡Buenas noches Pedro!')
+        mock_datetime.now.return_value.hour = 5
+        self.assertEqual(ohce.saludos(), '¡Buenas noches Pedro!')
+

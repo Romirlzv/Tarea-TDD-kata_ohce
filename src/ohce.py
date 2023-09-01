@@ -11,5 +11,13 @@ class Ohce:
         if palabra == reversa:
             return reversa + "\n" + "¡Bonita palabra!"
         return reversa
+    
+    def saludos(self):
+        import datetime
+        
+        hora_actual = datetime.datetime.now().hour
+        if 20 <= hora_actual or hora_actual < 6:
+            return f'¡Buenas noches {self.nombre}!'
+        
         
 
