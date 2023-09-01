@@ -14,6 +14,8 @@ class Test_Ohce(unittest.TestCase):
     def test_palindromo(self, mock_input):
         ohce = Ohce('Pedro')
         self.assertEqual(ohce.palabras('reconocer'), 'reconocer\n¡Bonita palabra!')
+        self.assertEqual(ohce.palabras('luz azul'), 'luza zul\n¡Bonita palabra!')
+        self.assertEqual(ohce.palabras('Amor a roma'), 'amor a romA\n¡Bonita palabra!')
         
     @patch('datetime.datetime')
     def test_saludo_buenas_noches(self, mock_datetime):

@@ -5,10 +5,16 @@ class Ohce:
     def __init__(self, nombre):
          self.nombre = nombre
     
+    def palindromo(self, palabra):
+        palabra = palabra.lower().replace(" ", "")
+        es_palindromo = palabra == palabra[::-1]
+        return es_palindromo
+        
+    
     def palabras(self, palabra_input):
-        palabra = palabra_input.lower().replace(" ", "")
-        reversa = palabra[::-1]
-        if palabra == reversa:
+        #palabra = palabra_input.lower().replace(" ", "")
+        reversa = palabra_input[::-1]
+        if self.palindromo(palabra_input):
             return reversa + "\n" + "¡Bonita palabra!"
         return reversa
     
