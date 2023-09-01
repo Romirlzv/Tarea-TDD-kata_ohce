@@ -46,3 +46,8 @@ class Test_Ohce(unittest.TestCase):
         self.assertEqual(ohce.saludos(), '¡Buenas tardes Pedro!')
         mock_datetime.now.return_value.hour = 19
         self.assertEqual(ohce.saludos(), '¡Buenas tardes Pedro!')
+    
+    @patch('builtins.input', side_effect=['Stop!'])
+    def test_stop(self, mock_input):
+        ohce = Ohce('Pedro')
+        self.assertEqual(ohce.palabras('Stop!'), 'Adios Pedro')

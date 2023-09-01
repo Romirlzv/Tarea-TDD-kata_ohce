@@ -12,7 +12,8 @@ class Ohce:
         
     
     def palabras(self, palabra_input):
-        #palabra = palabra_input.lower().replace(" ", "")
+        if palabra_input == 'Stop!':
+            return f'Adios {self.nombre}'
         reversa = palabra_input[::-1]
         if self.palindromo(palabra_input):
             return reversa + "\n" + "¡Bonita palabra!"
